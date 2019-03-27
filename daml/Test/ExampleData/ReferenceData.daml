@@ -1,0 +1,18 @@
+daml 1.2
+module Test.ExampleData.ReferenceData where
+
+import DA.Date
+import ISDA.CDM.EventSpecificationModule
+import Main.ReferenceData
+
+emptyRefData : RefData
+emptyRefData = RefData with
+                holidayCalendarCids = []
+                observationCids = []
+
+usnyHCI : Scenario HolidayCalendarInstance
+usnyHCI = do
+  observers <- mapA getParty ["CCP-P01", "DEALER-D01", "DEALER-D02", "DEALER-D03", "CLIENT-C04"]
+  publisher <- getParty "REUTERS"
+  let d = HolidayCalendarData with label = "USNY", holidays = [], weekend = [Saturday, Sunday]
+  return HolidayCalendarInstance with ..

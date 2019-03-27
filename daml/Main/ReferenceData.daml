@@ -1,0 +1,33 @@
+daml 1.2
+module Main.ReferenceData where
+
+import ISDA.CDM.EventSpecificationModule hiding (Party)
+
+template ObservationInstance
+  with
+    d         : ObservationPrimitive
+    publisher : Party
+    observers : [Party]
+  where
+    signatory publisher
+    observer observers
+
+template HolidayCalendarInstance
+  with
+    d         : HolidayCalendarData
+    publisher : Party
+    observers : [Party]
+  where
+    signatory publisher
+    observer observers
+
+data RefData = RefData
+  with
+    holidayCalendarCids : [ContractId HolidayCalendarInstance]
+    observationCids     : [ContractId ObservationInstance]
+  deriving (Show, Eq)
+
+emptyRefData : RefData
+emptyRefData = RefData with
+                  holidayCalendarCids = []
+                  observationCids     = []

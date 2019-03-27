@@ -1,0 +1,19 @@
+project:
+  sdk-version: '0.11.14'
+  scenario: Setup:empty
+  name: cdm
+  source: daml/Setup.daml
+  parties:
+  - CCP-P01
+  - DEALER-D01
+  - DEALER-D02
+  - DEALER-D03
+  - CLIENT-C01
+  - CLIENT-C02
+  - CLIENT-C03
+  - CLIENT-C04
+  - CLIENT-C05
+  - FED
+  - ECB
+  - REUTERS
+version: 2

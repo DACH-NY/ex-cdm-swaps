@@ -1,0 +1,14 @@
+daml 1.2
+module Setup where
+
+import Main.Market.Contract()
+import Main.Market.Cash()
+import Main.Event.Instance()
+import Main.Event.Notification()
+import Main.Event.Proposal()
+import Main.MasterAgreement()
+import Main.ReferenceData()
+import Main.Workflow.Allocate()
+import Main.Workflow.DeriveEvents()
+
+empty = scenario do return ()
