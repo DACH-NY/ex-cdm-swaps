@@ -23,7 +23,7 @@ To set up the application:
 
       da compile
 
-* Build the application by running:
+* Build the application by running (make sure sbt is installed):
 
       (cd app; sbt compile)
 
@@ -38,12 +38,12 @@ To start the application, run each of the following commands in a separate shell
 
 * Start the sandbox by running:
 
-      da run sandbox -- target/cdm.dar target/ghc-prim.dalf --scenario Setup:empty --port 7600 &> logs/sandbox.log
+      da run sandbox -- target/cdm.dar target/ghc-prim.dalf --scenario Setup:empty --port 7600 &> sandbox.log
 
 
 * Start the navigator by running:
 
-      java -Xmx6g -Xss1024k -d64 -jar $(da path navigator) server --port 7500 localhost 7600 &> logs/navigator.log
+      java -Xmx6g -Xss1024k -d64 -jar $(da path navigator) server --port 7500 localhost 7600 &> navigator.log
 
    It is recommended to reduce the zoom of the browser to show all tables properly.
 
