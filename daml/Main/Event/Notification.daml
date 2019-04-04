@@ -1,7 +1,7 @@
 daml 1.2
 module Main.Event.Notification where
 
-import ISDA.CDM.EventSpecificationModule (Event)
+import Org.Isda.Cdm.EventSpecificationModule (Event)
 import Main.Types
 import Main.Utils.Cdm
 

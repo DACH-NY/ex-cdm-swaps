@@ -1,7 +1,7 @@
 daml 1.2
 module Main.Market.Contract where
 
-import ISDA.CDM.EventSpecificationModule (Contract)
+import Org.Isda.Cdm.EventSpecificationModule (Contract)
 import Main.Event.Notification
 import Main.Types
 import Main.Utils.Cdm

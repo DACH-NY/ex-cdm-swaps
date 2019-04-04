@@ -1,7 +1,7 @@
 daml 1.2
 module Main.MasterAgreement where
 
-import ISDA.CDM.EventSpecificationModule as Cdm hiding (Party)
+import Org.Isda.Cdm.EventSpecificationModule as Cdm hiding (Party, RefData)
 import Main.Event.Instance
 import Main.Event.Proposal
 import Main.Market.Contract
@@ -165,10 +165,11 @@ createDerivedEvent refData event ciCid = do
 
   eventNew <-
     setEventRosettaKey
-    =<< fromSomeTry "no events found"
-    =<< find (\e -> e.effectiveDate == event.effectiveDate && e.eventQualifier == event.eventQualifier)
-    <$> (run $ Cdm.buildDerivedEvents spec) refData
-  assertMsg "event has realised" (eventNew.primitive /= emptyPrimitiveEvent)
+    =<< (fromSomeTry "no events found" .
+          find (\e -> e.effectiveDate == event.effectiveDate && e.eventQualifier == event.eventQualifier))
+    =<< (flip Cdm.buildDerivedEvents) spec
+    <$> toCdmRefData refData
+  assertMsg "event has realized" (eventNew.primitive /= emptyPrimitiveEvent)
 
   -- Net transfers
   let eventNetted = eventNew with

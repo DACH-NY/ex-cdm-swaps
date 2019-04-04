@@ -2,7 +2,7 @@ daml 1.2
 module Test.ExampleData.Contract where
 
 import DA.Date as D
-import ISDA.CDM.EventSpecificationModule
+import Org.Isda.Cdm.EventSpecificationModule
 import Test.ExampleData.Counterparty
 import Test.Utils
 

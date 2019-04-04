@@ -4,7 +4,7 @@ module Test.Event where
 import DA.Date as D
 import DA.List
 import DA.Optional
-import ISDA.CDM.EventSpecificationModule hiding (exercise, Trigger)
+import Org.Isda.Cdm.EventSpecificationModule hiding (exercise, Trigger)
 import Main.Event.Instance
 import Main.Event.Proposal
 import Main.Market.Cash as Cash

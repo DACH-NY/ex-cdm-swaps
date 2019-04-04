@@ -2,7 +2,7 @@ daml 1.2
 module Test.Utils where
 
 import DA.Date as D
-import ISDA.CDM.EventSpecificationModule as Cdm hiding (exercise)
+import Org.Isda.Cdm.EventSpecificationModule as Cdm hiding (exercise)
 import Main.MasterAgreement
 import Main.ReferenceData
 import Test.ExampleData.Counterparty
@@ -28,8 +28,8 @@ getPartyData cp =
       servicingParty = None
       accountNumber = fieldWithEmptyMeta cp.account
       accountType = None
-    naturalPerson = []
     partyId = [fieldWithEmptyMeta cp.partyId]
+    person = []
 
 getPartyId : Counterparty -> Text
 getPartyId cp = cp.partyId
