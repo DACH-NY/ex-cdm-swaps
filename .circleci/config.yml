@@ -6,6 +6,8 @@ jobs:
   application:
     docker:
       - image: hseeberger/scala-sbt:11.0.2_2.12.8_1.2.8
+    environment:
+      - MAKEFLAGS: "-i"
     steps:
       - checkout
       - run:
