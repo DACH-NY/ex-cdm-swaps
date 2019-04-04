@@ -3,7 +3,7 @@ module Main.Utils.Cdm where
 
 import DA.List as L
 import DA.Optional
-import ISDA.CDM.EventSpecificationModule as Cdm
+import Org.Isda.Cdm.EventSpecificationModule as Cdm
 import Main.Types
 import Main.Utils.Common
 import Prelude as Daml hiding (id)

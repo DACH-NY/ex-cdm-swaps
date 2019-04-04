@@ -1,34 +1,7 @@
 daml 1.2
 module Main.Types where
 
-import ISDA.CDM.EventSpecificationModule as Cdm
-import Main.ReferenceData
 import Prelude as Daml hiding (id)
-
-newtype UpdateWithRefData v = UpdateWithRefData
-  with
-    run : RefData -> Update v
-
-instance Functor UpdateWithRefData where
-   fmap f x = UpdateWithRefData $ \refData -> fmap f $ x.run refData
-
-instance Applicative UpdateWithRefData where
-    pure x = UpdateWithRefData $ \refData -> pure x
-    f <*> x = UpdateWithRefData $ \refData -> f.run refData <*> x.run refData
-
-instance Action UpdateWithRefData where
-    x >>= f = UpdateWithRefData $ \refData -> x.run refData >>= (\y -> (f y).run refData)
-
-instance Cdm.Fetch UpdateWithRefData where
-    fetchHolidayCalendar key =
-      UpdateWithRefData $ \refData -> do
-        hcs <- mapA (fmap (\x -> x.d) . fetch) refData.holidayCalendarCids
-        return $ find ((== key) . getKey) hcs
-
-    fetchObservation key =
-      UpdateWithRefData $ \d -> do
-        obs <- mapA (fmap (\x -> x.d) . fetch) d.observationCids
-        return $ find ((== key) . getKey) obs
 
 data ContractIdData a = ContractIdData
   with

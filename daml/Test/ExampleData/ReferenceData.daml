@@ -2,7 +2,7 @@ daml 1.2
 module Test.ExampleData.ReferenceData where
 
 import DA.Date
-import ISDA.CDM.EventSpecificationModule
+import Org.Isda.Cdm.EventSpecificationModule hiding (RefData)
 import Main.ReferenceData
 
 emptyRefData : RefData

@@ -1,7 +1,7 @@
 daml 1.2
 module Main.Workflow.DeriveEvents where
 
-import ISDA.CDM.EventSpecificationModule as Cdm hiding (Party, Trigger, exercise)
+import Org.Isda.Cdm.EventSpecificationModule as Cdm hiding (Party, Trigger, exercise, RefData)
 import Main.Event.Instance
 import Main.Market.Contract
 import Main.MasterAgreement
@@ -28,7 +28,7 @@ template DeriveEventsWorkflow
           ci <- fetch ciCid
           pastEvents <- mapA (\enCid -> do en <- fetch enCid; return en.d) ci.lifecycleEventCids
           let spec = DerivedSpec with contract = ci.d, ..
-          events <- mapA setEventRosettaKey =<< (run $ Cdm.buildDerivedEvents spec) refData
+          events <- mapA setEventRosettaKey =<< (flip Cdm.buildDerivedEvents) spec <$> toCdmRefData refData
 
           contractIdentifier <-
             (\p -> findIdentifierByParty p ci.d.contractIdentifier)

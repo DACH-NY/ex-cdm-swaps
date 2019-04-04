@@ -3,7 +3,7 @@ module Main.Event.Instance where
 
 import DA.List as List
 import DA.Optional
-import ISDA.CDM.EventSpecificationModule as Cdm hiding (length)
+import Org.Isda.Cdm.EventSpecificationModule as Cdm hiding (length)
 import Main.Event.Notification
 import Main.Market.Cash
 import Main.Market.Contract

@@ -4,7 +4,7 @@ module Main.Market.Cash where
 import DA.Action
 import DA.List
 import DA.Optional
-import ISDA.CDM.EventSpecificationModule as Cdm (CashTransferComponent, Party, Account)
+import Org.Isda.Cdm.EventSpecificationModule as Cdm (CashTransferComponent, Party, Account)
 import Main.Types
 import Main.Utils.Cdm
 import Main.Utils.Common
