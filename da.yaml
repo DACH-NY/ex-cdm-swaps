@@ -1,8 +1,8 @@
 project:
-  sdk-version: '0.11.14'
-  scenario: Setup:empty
-  name: cdm
-  source: daml/Setup.daml
+  sdk-version: '0.11.23'
+  scenario: Main:empty
+  name: CdmSwaps
+  source: daml/Main.daml
   parties:
   - CCP-P01
   - DEALER-D01

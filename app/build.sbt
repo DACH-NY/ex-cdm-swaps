@@ -1,6 +1,6 @@
 import scala.util.Try
 
-name := "app"
+name := "CdmSwaps"
 
 version := "0.1"
 
