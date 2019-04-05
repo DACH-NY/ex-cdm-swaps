@@ -11,7 +11,7 @@
     "base": {
       "timestamp": [{
         "dateTime": "2018-11-02T10:55:50.105+00:00[UTC]",
-        "qualification": "eventCreationTime"
+        "qualification": "eventCreationDateTime"
       }],
       "eventDate": "2018-11-02",
       "transfer": [{

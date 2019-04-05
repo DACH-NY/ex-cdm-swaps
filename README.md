@@ -39,7 +39,7 @@ To start the application, run each of the following commands in a separate shell
 
 * Start the sandbox by running:
 
-      da run sandbox -- target/cdm.dar target/ghc-prim.dalf --scenario Setup:empty --port 7600 &> sandbox.log
+      da run sandbox -- target/CdmSwaps.dar target/ghc-prim.dalf --scenario Setup:empty --port 7600 &> sandbox.log
 
 
 * Start the navigator by running:

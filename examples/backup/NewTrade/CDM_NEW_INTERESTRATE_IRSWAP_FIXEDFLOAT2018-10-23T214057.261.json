@@ -10,7 +10,7 @@
     }],
     "base": {
       "timestamp": [{
-        "qualification": "eventCreationTime",
+        "qualification": "eventCreationDateTime",
         "dateTime": "2018-10-23T21:40:57.261+00:00[UTC]"
       }],
       "rosettaKey": "f9cb3b94",
