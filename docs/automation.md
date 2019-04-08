@@ -58,7 +58,7 @@ It is also possible to publish a list of rate fixings from a csv file by running
     publishRateFixings(file)
 
 
-### Derive events
+### Deriving events
 Future events for a single contract can be derived by running
 
     deriveEvents(party, contractRosettaKey)
