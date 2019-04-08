@@ -172,8 +172,7 @@
                   "businessCenters" : {
                     "businessCenter" : [ {"value" : "EUTA"} ]
                   },
-                  "businessDayConvention" : "NONE",
-                  "dateRelativeTo" : { "reference" : "resetDates" }
+                  "businessDayConvention" : "NONE"
                 },
                 "id" : "resetDates",
                 "resetDatesAdjustments" : {
