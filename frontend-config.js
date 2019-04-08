@@ -114,8 +114,7 @@ function getValue(c, key) {
 }
 
 var formatDate = function(days) {
-  var date = new Date(days * 24 * 60 * 60 * 1000)
-  return date.toLocaleDateString("en-GB")
+  return days
 };
 
 function flatten(xs)

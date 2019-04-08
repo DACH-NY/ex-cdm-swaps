@@ -101,7 +101,7 @@ Finally, all derived events for the next year will be applied:
           removeDerivedEvents("CCP-P01", "1b78d43e")
           removeDerivedEvents("CCP-P01", "1d74ef54")
 
-2. Set the ledger time to `2019-09-24`.
+2. Set the ledger time to `2019-09-26`.
 
 3. Publish all rate fixings by running
 
