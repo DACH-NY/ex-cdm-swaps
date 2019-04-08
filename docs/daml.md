@@ -15,7 +15,7 @@ A more detailed architecture is shown below:
 ![](img/architecture.png)
 
 ### Events
-Starting from the [master agreement](../daml/Main/MasterAgreement.daml#L19-L26), new events like a [new trade](../daml/Main/MasterAgreement.daml#L28-L36) or [termination](daml/Main/MasterAgreement.daml#L38-L46) event can be proposed by any party.
+Starting from the [MasterAgreement](../daml/Main/MasterAgreement.daml#L19-L26), new events like a [new trade](../daml/Main/MasterAgreement.daml#L28-L36) or [termination](../daml/Main/MasterAgreement.daml#L38-L46) event can be proposed by any party.
 
 This results in an [EventProposal](../daml/Main/Event/Proposal.daml#L12-L42) from one party to the other parties involved in the event. Once the event has been accepted by all parties, an `EventInstance` gets created.
 
@@ -28,7 +28,7 @@ Besides proposing negotiated events where all parties need to accept first, the 
 
 ### Cash
 
-The DAML model also includes a simple [cash asset model](../daml/Main/Market/Cash.daml#L21-L62). If the event includes a cash transfer, cash is moved from the payer to the receiver by first [instructing](../daml/Main/Event/Instance.daml#L29-L37) the cash transfer. The payer can then allocate cash to the [CashTransferInstruction](../daml/Main/Market/Cash.daml#L101-L137). Once all cash transfer instruction are allocated, it is possible to lifecycle the event which also settles cash transfers next to moving contracts.
+The DAML model also includes a simple [cash asset model](../daml/Main/Market/Cash.daml#L21-L62). If the event includes a cash transfer, cash is moved from the payer to the receiver by first [instructing](../daml/Main/Event/Instance.daml#L29-L37) the cash transfer. The payer can then allocate cash to the [CashTransferInstruction](../daml/Main/Market/Cash.daml#L101-L137). Once all cash transfer instruction are allocated, it is possible to lifecycle the event which also settles the cash transfers next to moving contracts.
 
 ### Reference Data
 
@@ -38,6 +38,6 @@ Given that swaps depend on [reference data](../daml/Main/ReferenceData.daml) in 
 
 Finally, some workflow templates are included in this DAML model:
 
-* [DeriveEventsWorkflow](../daml/Main/Workflow/DeriveEvents.daml#L16-L40) allows to derive all future events - i.e. events that have not been processed so far - for a contract. The result of the process is a list of [DerivedEvent](../daml/Main/Workflow/DeriveEvents.daml#L42-L72)(s). Note that the events mainly serve as information and is subject to changes if, e.g., an underlying holiday calendar changes.
+* [DeriveEventsWorkflow](../daml/Main/Workflow/DeriveEvents.daml#L16-L40) allows to derive all future events - i.e. events that have not been processed so far - for a given CDM contract. The result of the process is a list of [DerivedEvent](../daml/Main/Workflow/DeriveEvents.daml#L42-L72)(s). Note that these events mainly serve as information contracts and are subject to changes if, e.g., an underlying holiday calendar changes.
 
 * The [AllocateWorkflow](../daml/Main/Workflow/Allocate.daml) allows to allocate cash to a list of cash transfer instructions.
