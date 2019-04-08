@@ -4,12 +4,14 @@ Make sure that the automation (bots) is started with the demo mode enabled. Each
 
 ## Parties
 
-The following parties are involved:
-* A central counter party (CCP-P01) with on account.
-* Three dealers (DEALER-D01, .., DEALER-D03) with five accounts each.
-* Five clients (CLIENT-C01, .., CLIENT-C05) with three accounts each.
+The following parties are involved in the demo:
+* A central counter party (CCP-P01) with one account.
+* Three dealers (DEALER-D01, ..., DEALER-D03) with five accounts each.
+* Five clients (CLIENT-C01, ..., CLIENT-C05) with three accounts each.
 * FED and ECB for issuing USD and EUR, respectively.
 * REUTERS for publishing reference data.
+
+Note that the central counter party, the dealers, and clients can all perform the same actions. The application does not grant them any specific roles.
 
 ## Market Setup
 
@@ -22,7 +24,7 @@ to
   * set the ledger time to 2018-10-26T12:00:00Z,
   * load a set of master agreements between the central counter party, dealers, and clients,
   * distribute cash by the ECB and FED,
-  * publish some holiday calendars by REUTERS the products depend on.
+  * publish some holiday calendars by REUTERS.
 
 ## Negotiated events
 
@@ -34,7 +36,7 @@ The first part of the demo deals with negotiated events where all parties involv
 
         loadEvents("../examples/NewTrade")
 
-    to load around 50 new trade events. The `Demo bot` auto-accepts all events except two.
+    to load around 50 new trade events. The `DemoBot` auto-accepts all events except two.
 
 2. Log in as CCP-P01, go to `Event_NewTrade`, and accept the proposed new trade event for contract `CAXMKVEHOV-1` by exercising the `Accept2` choice. This changes the status of the event to `Applied`.
 
@@ -48,7 +50,7 @@ The first part of the demo deals with negotiated events where all parties involv
 
         loadEvents("../examples/TradeEvents")
 
-      This loads a few (partial) termination and (partial) novation events. As before, the `Demo bot` auto-accepts all events except two.
+      This loads a few (partial) termination and (partial) novation events. As before, the `DemoBot` auto-accepts all events except two.
 
 2. Log in as CCP-P01 and inspect the termination (`Event_Termination`) and novation (`Event_Novation`) events.
 
@@ -79,7 +81,7 @@ The second part of the demo deals with derived events like resets or cash transf
 
           deriveEvents("CCP-P01", "1b78d43e")
 
-      Go to `Event_Reset` to see that the reset with known value is available now.
+      Go to `Event_Reset` to see that the reset has a value now.
 
 5. Run
 

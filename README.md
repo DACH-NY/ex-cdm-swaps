@@ -3,7 +3,7 @@
 
 > Copyright (c) 2019, Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. SPDX-License-Identifier: Apache-2.0
 
-This is an application for lifecycling interest rate swaps (IRS) and credit default swaps (CDS) across their lifetime using ISDA's [CDM](https://portal.cdm.rosetta-technology.io) including the [CDM event specification module](TBA). This includes derived events like a reset or interest rate payment but also negotiated events such as new trade, (partial) termination, and (partial) novation events.
+This is an application for lifecycling interest rate swaps (IRS) and credit default swaps (CDS) across their lifetime using ISDA's [CDM](https://portal.cdm.rosetta-technology.io) including the [CDM event specification module](TBA). This covers derived events like a reset or interest rate payment as well as negotiated events like new trade, (partial) termination, and (partial) novation events.
 
 In addition, a simple cash asset model was added to the application to illustrate how cash is moved between parties while applying events.
 
@@ -29,7 +29,7 @@ To set up the application:
       (cd app; sbt compile)
 
    The application consists of two parts:
-    1. A customized REPL that allows sending commands to the ledger.
+    1. A customized REPL that allows to send commands to the ledger.
     2. Automation for certain processes like applying an event once it is due.
 
 
