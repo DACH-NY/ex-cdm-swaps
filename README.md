@@ -16,6 +16,12 @@ Fore more details, go to
 * [Demo](docs/demo.md):  This section describes a demo flow for the application.
 
 
+## Prerequisites
+
+* [DAML SDK](https://daml.com/) for building and running DAML code
+* [sbt](https://www.scala-sbt.org/) for building and running automation
+
+
 ## Setting up the application
 
 To set up the application:
@@ -24,7 +30,7 @@ To set up the application:
 
       da compile
 
-* Build the application by running (make sure sbt is installed):
+* Build the application by running:
 
       (cd app; sbt compile)
 
