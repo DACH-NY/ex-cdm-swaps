@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Install make
-          command: apt-get update && apt-get install make
+          command: (apt-get update || apt-get update) && apt-get install make
       - run:
           name: Build Application
           command: make build-app
