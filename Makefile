@@ -70,7 +70,7 @@ build-app: $(app_build_result)
 
 $(app_build_result): $(shell find $(appsrc) -type f)
 	@echo build triggered because these files changed: $?
-	(cd app; sbt) package)
+	(cd app; sbt package)
 
 ########
 # clean
