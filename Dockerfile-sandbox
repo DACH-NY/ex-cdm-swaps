@@ -7,12 +7,12 @@ ARG sdk_version=0.13.22
 
 FROM digitalasset/daml-sdk:${sdk_version}
 
-EXPOSE 6865
-
 RUN mkdir src
 WORKDIR /home/daml/src
 COPY daml.yaml frontend-config.js ui-backend.conf ./
 COPY daml daml
 RUN daml build
+
+EXPOSE 6865
 
 CMD daml sandbox .daml/dist/CdmSwaps-1.0.0.dar

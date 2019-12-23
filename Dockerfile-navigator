@@ -7,12 +7,12 @@ ARG sdk_version=0.13.22
 
 FROM digitalasset/daml-sdk:${sdk_version}
 
-EXPOSE 4000
-
 RUN mkdir src
 WORKDIR /home/daml/src
 COPY daml daml
 COPY daml.yaml frontend-config.js ui-backend.conf ./
 RUN daml build
+
+EXPOSE 4000
 
 CMD daml navigator server ${LEDGER_HOST} ${LEDGER_PORT}
