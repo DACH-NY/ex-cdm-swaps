@@ -11,8 +11,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install make and jq
-          command: (apt-get update || apt-get update) && apt-get install make && apt-get install jq
+          name: Install make
+          command: (apt-get update || apt-get update) && apt-get install make
+      - run:
+          name: Install jq
+          command: (apt-get update -y || apt-get update -y) && apt-get install -y jq          
       - run:
           name: Build Application
           command: make build-app
