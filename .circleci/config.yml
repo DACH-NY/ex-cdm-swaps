@@ -16,6 +16,11 @@ jobs:
       - run:
           name: Build Application
           command: make build-app
+      - run:
+          name: Run Blackduck Detect
+          command: |
+            bash <(curl -s https://raw.githubusercontent.com/DACH-NY/security-blackduck/master/synopsys-detect) ci-build digitalasset_ex-cdm-swaps master --logging.level.com.synopsys.integration=DEBUG
+
   daml:
     docker:
       - image: circleci/openjdk:8-jdk
@@ -49,5 +54,6 @@ jobs:
 workflows:
   Build and test:
     jobs:
-      - application
+      - application:
+        context: blackduck
       - daml
