@@ -9,8 +9,8 @@ FROM digitalasset/daml-sdk:${sdk_version}
 
 RUN mkdir src
 WORKDIR /home/daml/src
-COPY daml.yaml frontend-config.js ui-backend.conf ./
 COPY daml daml
+COPY daml.yaml frontend-config.js ui-backend.conf ./
 RUN daml build
 
 EXPOSE 6865
